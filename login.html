@@ -1,0 +1,34 @@
+<html>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <head>
+        <title>JS Assignment</title>
+    </head>
+    <body>
+            <div class="container">
+                <div>
+                    <h3>Login</h3>
+                    <a href="register.html">Register</a>
+                </div>
+                <div class="col-md-6">
+                        <div class="form-registration">
+                                <form onsubmit="submitRegistration()" method="POST" id="register_form">
+                                    <div class="infoMessage"></div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text"  class="form-control" id="email" name="register[email]">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-default" value="Login">
+                                    </div>
+                                </form>
+                        </div>    
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+        
+        </div>
+    </body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="register.js"></script>
