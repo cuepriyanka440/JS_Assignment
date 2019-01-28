@@ -1,0 +1,69 @@
+<html>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <head>
+        <title>JS Assignment</title>
+    </head>
+    <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h3>Todo List</h3>
+                    </div>
+                    <div class="col-md-9">
+                        <a href="#" onclick="handleLogout()" class="btn btn-primary p-3">Logout</a>
+                    </div>
+                </div>
+                <div class="row"></div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div id="todo">
+                                    <div class="infoMessages"></div>
+                                <form onsubmit="handleAddTodo()" method="POST" id="todo_form">
+                                    <input type="hidden" id="todo_id">
+                                    <div class="form-group">
+                                        <label>Task</label>
+                                        <input type="text" name="task" id="task">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Due date</label>
+                                        <input type="text" class="datepicker" name="duedate" id="duedate" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Completed</label>
+                                            <input type="checkbox" name="done" id="done"> Done
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-default" value="Add/update Todo">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                          
+                    </div>
+                    <div class="col-md-6">
+                        <a href="#" onclick="deleteMultipleTodos()" class="btn btn-default">Delete Todo</a>
+                        <div class="infoMessage"></div>
+                        <table class="table" id="tableTodos">
+                            <thead>
+                                <tr>
+                                    <th>Todo</th>
+                                    <th>Due Date</th>
+                                    <th>Done</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="todoList"></tbody>
+                        </table>
+                    </div>
+                </div>
+        
+        </div>
+    </body>
+</html>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script src="../common.js"></script>
+<script src="todo.js"></script>

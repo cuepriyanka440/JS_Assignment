@@ -2,29 +2,34 @@ var email,password;
 
 checkLoggedInUser();
 
-function handleLogin() {
-    
-    event.preventDefault();
+function handleLogin(){
 
-    var archive = [],
-    keys = Object.keys(localStorage),
-    i = 0, key, isLoggedIn = 0;
-    if (validation()) // Calling Validation Function
-    {
-        
+    var p = new Promise(function(resolve, reject) {
+    
+        event.preventDefault();
+        if (validation()){
+            resolve(1);
+        }
+
+    })
+    p.then(function(result) { 
+        var archive = [],
+        keys = Object.keys(localStorage),
+        i = 0, key, isLoggedIn = 0;
         for (; key = keys[i]; i++) {
             str1 = localStorage.getItem(key);
             if( str1.indexOf(email) != -1 && str1.indexOf( password )!= -1 ){
                 isLoggedIn = 1;
                 setCookie( key );
-                window.location.href = 'profile.html';
+                window.location.href = '../profile/profile.html';
             }
         }
         if( !isLoggedIn ) {
             $('.infoMessage').addClass('alert alert-danger').html("User is not registered with us.");
         }
-    }
-    
+    }).catch(function(error) {
+        $('.infoMessages').addClass('alert alert-danger').html(error)
+    });
 }
 
 
@@ -55,9 +60,3 @@ function setCookie(cvalue) {
     localStorage.setItem("Profile", cvalue );    
 }
 
-function checkLoggedInUser() {
-    profileId = localStorage.getItem("Profile");
-    if(profileId){
-        window.location.href = 'profile.html';
-    }
- }
